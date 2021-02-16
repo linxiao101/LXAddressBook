@@ -20,7 +20,7 @@
 //CNContactStore
 
 
-static NSString *KCellIdentifier =@"NameIdentifier";
+static NSString *ListCellIdentifier =@"ListCellIdentifier";
 
 
 @interface ViewController () <UITableViewDataSource,UITableViewDelegate>{
@@ -77,7 +77,7 @@ static NSString *KCellIdentifier =@"NameIdentifier";
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height) style:UITableViewStylePlain];
     _tableView.dataSource = self;
     _tableView.delegate = self;
-    [_tableView registerClass:[MyTableViewCell class] forCellReuseIdentifier:KCellIdentifier];
+    [_tableView registerClass:[MyTableViewCell class] forCellReuseIdentifier:ListCellIdentifier];
     [self.view addSubview:self.tableView];
 }
 
@@ -279,7 +279,7 @@ static NSString *KCellIdentifier =@"NameIdentifier";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MyTableViewCell *cell =[tableView
-                            dequeueReusableCellWithIdentifier:KCellIdentifier
+                            dequeueReusableCellWithIdentifier:ListCellIdentifier
                             forIndexPath:indexPath];
     
     [cell bindData:_groups[indexPath.section].persons[indexPath.row]];

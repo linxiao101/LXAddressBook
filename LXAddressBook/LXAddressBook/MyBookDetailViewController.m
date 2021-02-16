@@ -14,7 +14,7 @@
 #import "PersonGroup.h"
 #import "DetailTableViewCell.h"
 
-static NSString *BCellIdentifier =@"Cell";
+static NSString *DetailCellIdentifier =@"DetailCellIdentifier";
 
 @interface MyBookDetailViewController ()<UITableViewDataSource,UITableViewDelegate>//这边删除了之前用的<CNContactPickerDelegate>
 
@@ -35,7 +35,7 @@ static NSString *BCellIdentifier =@"Cell";
     _tableView=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)  style:UITableViewStylePlain ];
     _tableView.dataSource=self;
     _tableView.delegate=self;
-    [_tableView registerClass:[DetailTableViewCell class] forCellReuseIdentifier:BCellIdentifier];
+    [_tableView registerClass:[DetailTableViewCell class] forCellReuseIdentifier:DetailCellIdentifier];
     [self.view addSubview:self.tableView];
     
     _headerView=[[UIView alloc] init];
@@ -71,7 +71,7 @@ static NSString *BCellIdentifier =@"Cell";
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     DetailTableViewCell *cell=[tableView
-                               dequeueReusableCellWithIdentifier:BCellIdentifier
+                               dequeueReusableCellWithIdentifier:DetailCellIdentifier
                                forIndexPath:indexPath];
     
     [cell bind:_person];
